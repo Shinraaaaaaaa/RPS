@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK , PAPER , SCISSOR GAME</title>
+    <link rel="website icon" type="png" href="images/rsp1.png" />
+  </head>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 8%;
+      background-color: #74db8e;
+    }
+    .rps {
+      text-align: center;
+      display: inline-block;
+    }
+    img {
+      width: 100%;
+    }
+    .footer {
+      margin-top: 5%;
+    }
+    button {
+      border-radius: 20%;
+      background-color: #555555;
+      cursor: pointer;
+      padding: 12px;
+      border: none;
+      color: #fff;
+    }
+  </style>
+  <body>
+    <div>
+      <h1>Game On!</h1>
+
+      <div class="rps">
+        <p class="p1"><b>PLAYER 1</b></p>
+        <img class="img1" src="images/rsp1.png" alt="" />
+      </div>
+
+      <div class="rps">
+        <p class="p2"><b>PLAYER 2</b></p>
+        <img class="img2" src="images/rsp1.png" alt="" />
+      </div>
+
+      <div class="click-me">
+        <button onClick="window.location.reload();">Click Me</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <footer>❥❥❥ Prince Justine Y. David ❥❥❥</footer>
+    </div>
+
+    <script>
+      // step 1 - ramdomizing images
+      var randomPicture1 = Math.floor(Math.random() * 3) + 1;
+      console.log(randomPicture1);
+
+      // step 2 - creating a var called "randomImage"
+      // rsp1 = rock , rsp2 = paper , rsp3 = scissor
+      var randomImage = "rsp" + randomPicture1 + ".png";
+      console.log(randomImage);
+
+      // step 3 - adding the source value in our image
+      var randomImageSource = "images/" + randomImage; // this is the destination folder
+
+      // step 4 - dom manipulation for the image path
+      var image1 = document.querySelectorAll("img")[0];
+
+      // step 5 - changing the image attribute
+      image1.setAttribute("src", randomImageSource);
+
+      // step 1 - ramdomizing images
+      var randomPicture2 = Math.floor(Math.random() * 3) + 1;
+      console.log(randomPicture2);
+
+      // step 2 - creating a var called "randomImage"
+      // rsp1 = rock , rsp2 = paper , rsp3 = scissor
+      var randomImage2 = "rsp" + randomPicture2 + ".png";
+      console.log(randomImage2);
+
+      // step 3 - adding the source value in our image
+      var randomImageSource2 = "images/" + randomImage2; // this is the destination folder
+
+      // step 4 - dom manipulation for the image path
+      var image2 = document.querySelectorAll("img")[1];
+
+      // step 5 - changing the image attribute
+      image2.setAttribute("src", randomImageSource2);
+
+      var rock = "rsp1.png";
+      var paper = "rsp2.png";
+      var scissor = "rsp3.png";
+
+      // Rock wins
+      if (randomImage === rock && randomImage2 === scissor) {
+        document.querySelector("h1").innerHTML = "ROCK WON!";
+        document.querySelector(".p2").innerHTML =
+          "X <del> PLAYER 2 DEFEATED </del>";
+        document.querySelector(".p1").innerHTML =
+          "&#10003; <b> PLAYER 1 WON!</b>";
+      } else if (randomImage === scissor && randomImage2 === rock) {
+        document.querySelector("h1").innerHTML = "ROCK WON!";
+        document.querySelector(".p1").innerHTML =
+          "X <del> PLAYER 1 DEFEATED </del>";
+        document.querySelector(".p2").innerHTML =
+          "&#10003; <b> PLAYER 2 WON! </b>";
+      }
+
+      // Paper wins
+      else if (randomImage === paper && randomImage2 === rock) {
+        document.querySelector("h1").innerHTML = "PAPER WON!";
+        document.querySelector(".p2").innerHTML =
+          "X <del> PLAYER 2 DEFEATED </del>";
+        document.querySelector(".p1").innerHTML =
+          "&#10003; <b> PLAYER 1 WON!</b>";
+      } else if (randomImage === rock && randomImage2 === paper) {
+        document.querySelector("h1").innerHTML = "PAPER WON!";
+        document.querySelector(".p1").innerHTML =
+          "X <del> PLAYER 1 DEFEATED </del>";
+        document.querySelector(".p2").innerHTML =
+          "&#10003; <b> PLAYER 2 WON!</b>";
+      }
+
+      // Scissor wins
+      else if (randomImage === scissor && randomImage2 === paper) {
+        document.querySelector("h1").innerHTML = "SCISSOR WON!";
+        document.querySelector(".p2").innerHTML =
+          "X <del> PLAYER 2 DEFEATED </del>";
+        document.querySelector(".p1").innerHTML =
+          "&#10003; <b> PLAYER 1 WON!</b>";
+      } else if (randomImage === paper && randomImage2 === scissor) {
+        document.querySelector("h1").innerHTML = "SCISSOR WON!";
+        document.querySelector(".p1").innerHTML =
+          "X <del> PLAYER 1 DEFEATED </del>";
+        document.querySelector(".p2").innerHTML =
+          "&#10003; <b> PLAYER 2 WON!</b>";
+      } else document.querySelector("h1").innerHTML = "DRAW! TRY AGAIN.";
+    </script>
+  </body>
+</html>
